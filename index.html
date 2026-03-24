@@ -7,11 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&family=Playfair+Display:ital,wght@0,700;1,900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ibis-blue: #00338D;
-            --ibis-light: #0072ff;
-            --ibis-gold: #FFD700;
-            --glass: rgba(255, 255, 255, 0.9);
-            --bg-vibrant: #f0f7ff;
+            /* Luxury Midnight & Gold Palette */
+            --ibis-dark: #121212;      
+            --ibis-accent: #D4AF37;    /* Champagne Gold */
+            --ibis-soft: #f8f5f0;      
+            --glass: rgba(18, 18, 18, 0.85);
+            --bg-vibrant: #f8f5f0;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -19,116 +20,124 @@
         body {
             font-family: 'Outfit', sans-serif;
             background: var(--bg-vibrant);
-            color: #1a1a1a;
+            color: var(--ibis-dark);
             overflow-x: hidden;
         }
 
-        /* --- Clear Header --- */
+        /* --- Header Fix: Circular Blend --- */
         nav {
             position: fixed; top: 15px; left: 5%; right: 5%;
-            padding: 12px 25px;
+            padding: 8px 25px;
             background: var(--glass);
-            backdrop-filter: blur(20px);
-            border-radius: 50px;
+            backdrop-filter: blur(25px);
+            border-radius: 100px;
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-            border: 1px solid rgba(255,255,255,0.5);
-        }
-        .logo { height: 50px; width: auto; }
-        .nav-btn {
-            background: var(--ibis-blue); color: white;
-            padding: 10px 20px; border-radius: 50px;
-            text-decoration: none; font-weight: 700; font-size: 0.8rem;
-            cursor: pointer; border: none;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+            animation: slideDown 0.8s ease-out;
         }
 
-        /* --- Lively Hero --- */
+        .logo { 
+            height: 55px; width: 55px; 
+            background: white; 
+            border-radius: 50%; 
+            object-fit: contain; 
+            padding: 6px; 
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-btn {
+            background: var(--ibis-accent); color: #000;
+            padding: 10px 22px; border-radius: 50px;
+            text-decoration: none; font-weight: 800; font-size: 0.75rem;
+            cursor: pointer; border: none; letter-spacing: 1px;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* --- Hero --- */
         .hero {
             height: 100vh;
             display: flex; align-items: center; justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)),
                         url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80');
             background-size: cover; background-position: center;
             color: white; padding: 0 20px;
         }
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.8rem, 10vw, 5.5rem);
-            line-height: 1; margin-bottom: 20px;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            line-height: 1.1; margin-bottom: 20px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        .hero span { color: var(--ibis-gold); }
+        .hero span { color: var(--ibis-accent); font-style: italic; }
+        .hero .reveal { opacity: 1; animation: fadeInUp 1.2s ease-out; }
 
-        /* --- Floating Section --- */
-        .section { padding: 80px 8%; text-align: center; }
+        /* --- Sections --- */
+        .section { padding: 100px 8%; text-align: center; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
 
-        .reveal { opacity: 0; transform: translateY(50px); transition: 1s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
+        .reveal { opacity: 0; transform: translateY(50px); transition: 1.2s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         .card {
-            background: white; border-radius: 40px; overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.04);
-            transition: 0.4s; border: 1px solid rgba(0,0,0,0.02);
+            background: white; border-radius: 0; overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            transition: 0.5s; border-bottom: 3px solid transparent;
         }
-        .card:hover { transform: scale(1.03); box-shadow: 0 30px 70px rgba(0,51,141,0.15); }
+        .card:hover { transform: translateY(-10px); border-bottom-color: var(--ibis-accent); }
 
-        .card-img { height: 280px; width: 100%; object-fit: cover; }
-        .card-body { padding: 35px; text-align: left; }
-        .card-body h3 { font-size: 1.8rem; color: var(--ibis-blue); margin-bottom: 15px; }
+        .card-img { height: 320px; width: 100%; object-fit: cover; }
+        .card-body h3 { font-size: 1.8rem; color: var(--ibis-dark); margin-bottom: 15px; font-family: 'Playfair Display'; }
 
         .btn-gold {
             display: inline-block; padding: 18px 40px;
-            background: var(--ibis-gold); color: #000;
-            text-decoration: none; font-weight: 800; border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(255,215,0,0.3);
+            background: var(--ibis-accent); color: #000;
+            text-decoration: none; font-weight: 800; border-radius: 0;
+            box-shadow: 0 10px 20px rgba(212,175,55,0.3);
             cursor: pointer; border: none; font-family: 'Outfit';
-            transition: 0.3s ease;
+            transition: 0.3s ease; text-transform: uppercase; letter-spacing: 2px;
         }
-        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(255,215,0,0.4); }
+        .btn-gold:hover { background: var(--ibis-dark); color: white; transform: translateY(-3px); }
 
-        /* --- NEW: Formal Modal Form --- */
+        /* --- Modal --- */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 51, 141, 0.4); backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.85); backdrop-filter: blur(15px);
             display: none; justify-content: center; align-items: center; z-index: 3000;
         }
         .modal-content {
-            background: white; padding: 40px; border-radius: 30px;
+            background: var(--ibis-soft); padding: 45px; border-radius: 0;
             width: 90%; max-width: 500px; position: relative;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
         }
-        .modal-content h2 { font-family: 'Playfair Display'; color: var(--ibis-blue); margin-bottom: 10px; }
-        .close-modal { position: absolute; top: 20px; right: 25px; font-size: 2rem; cursor: pointer; color: #888; }
+        .modal-content h2 { font-family: 'Playfair Display'; font-size: 2.5rem; color: var(--ibis-dark); }
         
-        .form-group { margin-bottom: 15px; text-align: left; }
-        .form-group label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; }
-        .form-group input, .form-group textarea {
-            width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ddd;
-            font-family: 'Outfit'; font-size: 1rem;
-        }
-        .submit-btn {
-            width: 100%; background: var(--ibis-blue); color: white; border: none;
-            padding: 15px; border-radius: 12px; font-weight: 700; cursor: pointer; margin-top: 10px;
-        }
-
         /* --- Footer --- */
-        footer { padding: 80px 5% 40px; background: #fff; text-align: center; }
-        .decipher-tag { margin-top: 40px; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; color: #888; text-transform: uppercase; }
-        .decipher-tag span { color: var(--ibis-blue); }
+        footer { padding: 80px 5% 40px; background: var(--ibis-dark); color: white; text-align: center; }
+        footer img { filter: invert(1) brightness(2); }
+        .decipher-tag { margin-top: 40px; font-size: 0.7rem; letter-spacing: 4px; color: #555; }
+        .decipher-tag span { color: var(--ibis-accent); }
 
         .wa-float {
             position: fixed; bottom: 30px; right: 30px;
-            background: #25D366; width: 65px; height: 65px;
+            background: #fff; width: 65px; height: 65px;
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            color: white; box-shadow: 0 10px 30px rgba(37,211,102,0.4); z-index: 2000;
+            color: #25D366; box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 2000;
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3.2rem; }
-            nav { top: 10px; }
+            .hero h1 { font-size: 3.5rem; }
+            nav { width: 94%; left: 3%; }
         }
     </style>
 </head>
@@ -136,71 +145,66 @@
 
     <nav>
         <img src="Screenshot_20260323-225453.jpg" class="logo" alt="IBISBRAND">
-        <button onclick="toggleModal()" class="nav-btn">ENQUIRE</button>
+        <button onclick="toggleModal()" class="nav-btn">BOOK NOW</button>
     </nav>
 
     <header class="hero">
         <div class="reveal">
-            <h1>Elevate Your <span>Lifestyle.</span></h1>
-            <p style="font-size: 1.3rem; margin-bottom: 40px; font-weight: 300;">Experience the Art of Bespoke Living.</p>
-            <button onclick="toggleModal()" class="btn-gold">Request a Private Consultation</button>
+            <h1>Curating Your <br><span>Sanctuary.</span></h1>
+            <p style="font-size: 1.2rem; margin-bottom: 40px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase;">Premium Interiors & Bespoke Paint Artistry</p>
+            <button onclick="toggleModal()" class="btn-gold">Request an Exclusive Consultation</button>
         </div>
     </header>
 
+    <section class="reveal" style="padding: 100px 8% 20px; text-align: center;">
+        <span style="letter-spacing: 5px; color: var(--ibis-accent); font-weight: 800; font-size: 0.7rem; text-transform: uppercase;">Introduction</span>
+        <h2 style="font-family: 'Playfair Display'; font-size: clamp(2.5rem, 8vw, 4.5rem); color: var(--ibis-dark); margin-top: 15px;">IBISBRAND <span style="font-weight: 300; font-style: italic;">HUB</span></h2>
+        <p style="max-width: 650px; margin: 25px auto; line-height: 1.8; color: #666; font-size: 1.1rem;">Where visionary architecture meets the soul of artisanal craftsmanship. We redefine the standards of luxury living in Lagos and beyond.</p>
+        <div style="width: 50px; height: 2px; background: var(--ibis-accent); margin: 30px auto;"></div>
+    </section>
+
     <div class="modal-overlay" id="contactModal">
         <div class="modal-content">
-            <span class="close-modal" onclick="toggleModal()">&times;</span>
-            <h2>Refine Your Space</h2>
-            <p style="margin-bottom: 25px; color: #666;">Provide your details below, and our lead designer will reach out to you.</p>
-            
+            <span class="close-modal" onclick="toggleModal()" style="position: absolute; top: 20px; right: 25px; font-size: 2rem; cursor: pointer;">&times;</span>
+            <h2>Inquiry</h2>
+            <p style="margin-bottom: 25px; color: #666; font-style: italic;">Step into a world of refined design.</p>
             <form action="#">
                 <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="e.g. Alexander Sterling" required>
+                    <input type="text" placeholder="Full Name" style="width: 100%; padding: 15px; border: none; border-bottom: 1px solid #ddd; background: transparent; margin-bottom: 15px;" required>
                 </div>
                 <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" placeholder="+234..." required>
+                    <input type="tel" placeholder="Phone Number" style="width: 100%; padding: 15px; border: none; border-bottom: 1px solid #ddd; background: transparent; margin-bottom: 15px;" required>
                 </div>
-                <div class="form-group">
-                    <label>Inquiry Type</label>
-                    <select style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-family: 'Outfit';">
-                        <option>Full Interior Remodel</option>
-                        <option>Premium Paint Consultation</option>
-                        <option>Bespoke Furniture</option>
-                    </select>
-                </div>
-                <button type="submit" class="submit-btn">SEND REQUEST</button>
+                <button type="submit" class="submit-btn" style="background: var(--ibis-dark); color: white; padding: 20px; width: 100%; border: none; letter-spacing: 2px; font-weight: 800; cursor: pointer;">SEND REQUEST</button>
             </form>
         </div>
     </div>
 
     <section class="section">
-        <h2 class="reveal" style="font-family: 'Playfair Display'; font-size: 3rem; margin-bottom: 50px; color: var(--ibis-blue);">Our Services</h2>
+        <h2 class="reveal" style="font-family: 'Playfair Display'; font-size: 3rem; margin-bottom: 50px;">Bespoke Services</h2>
         <div class="grid">
             <div class="card reveal">
                 <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80" class="card-img" alt="Interior">
                 <div class="card-body">
                     <h3>Interior Design</h3>
-                    <p style="color: #666; margin-bottom: 25px;">Turning empty spaces into luxury environments tailored to your taste.</p>
-                    <button onclick="toggleModal()" class="btn-gold" style="background: var(--ibis-blue); color: white;">Book Design</button>
+                    <p style="color: #666; margin-bottom: 25px;">Transforming empty spaces into high-end environments tailored to your taste.</p>
+                    <button onclick="toggleModal()" class="btn-gold" style="padding: 12px 30px; font-size: 0.8rem;">Book Design</button>
                 </div>
             </div>
-
             <div class="card reveal">
                 <img src="https://images.unsplash.com/photo-1623835255306-868c63d9335e?auto=format&fit=crop&w=600&q=80" class="card-img" alt="Paints">
                 <div class="card-body">
                     <h3>Premium Paints</h3>
                     <p style="color: #666; margin-bottom: 25px;">Exotic color palettes and high-durability coatings for a perfect finish.</p>
-                    <button onclick="toggleModal()" class="btn-gold">Order Paint</button>
+                    <button onclick="toggleModal()" class="btn-gold" style="padding: 12px 30px; font-size: 0.8rem;">Order Paint</button>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <img src="Screenshot_20260323-225453.jpg" style="height: 60px; margin-bottom: 20px;">
-        <p style="color: #555;">&copy; 2026 The Ibisbrand Hub. Lagos, Nigeria.</p>
+        <img src="Screenshot_20260323-225453.jpg" style="height: 75px; margin-bottom: 20px; border-radius: 50%; background: white; padding: 5px;">
+        <p style="color: #888;">&copy; 2026 The Ibisbrand Hub. Lagos, Nigeria.</p>
         <div class="decipher-tag">Powered by <span>DECIPHER-IT</span></div>
     </footer>
 
@@ -209,19 +213,16 @@
     </a>
 
     <script>
-        // Modal Logic
         function toggleModal() {
             const modal = document.getElementById('contactModal');
             modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
         }
 
-        // Close modal when clicking outside content
         window.onclick = function(event) {
             const modal = document.getElementById('contactModal');
             if (event.target == modal) { modal.style.display = "none"; }
         }
 
-        // Scroll Reveal Logic
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
