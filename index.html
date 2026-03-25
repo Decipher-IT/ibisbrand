@@ -7,10 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&family=Playfair+Display:ital,wght@0,700;1,900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Updated to Light Blue and White Palette */
+            /* Changed Gold to Blue/White Palette */
             --ibis-blue: #0072ff; 
             --ibis-light: #e0f0ff;
-            --ibis-gold: #FFD700;
+            --ibis-action: #0056b3; /* Darker blue for call-to-action */
             --glass: rgba(255, 255, 255, 0.95);
             --bg-vibrant: #ffffff;
             --text-dark: #2c3e50;
@@ -28,30 +28,41 @@
         /* --- Clear Header --- */
         nav {
             position: fixed; top: 15px; left: 5%; right: 5%;
-            padding: 12px 25px;
+            padding: 10px 25px;
             background: var(--glass);
             backdrop-filter: blur(20px);
-            border-radius: 50px;
+            border-radius: 60px;
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000;
             box-shadow: 0 10px 30px rgba(0,114,255,0.1);
             border: 1px solid rgba(0,114,255,0.1);
         }
-        .logo { height: 50px; width: auto; border-radius: 5px; }
+        
+        /* Logo: Twice larger, Circle, Blended */
+        .logo { 
+            height: 80px; /* Increased size */
+            width: 80px; 
+            border-radius: 50%; /* Circle */
+            object-fit: contain;
+            background: white; /* Blends with the nav background */
+            padding: 5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
         .nav-btn {
             background: var(--ibis-blue); color: white;
-            padding: 10px 25px; border-radius: 50px;
-            text-decoration: none; font-weight: 700; font-size: 0.8rem;
+            padding: 12px 28px; border-radius: 50px;
+            text-decoration: none; font-weight: 700; font-size: 0.85rem;
             cursor: pointer; border: none; transition: 0.3s;
         }
-        .nav-btn:hover { background: #0056b3; }
+        .nav-btn:hover { background: var(--ibis-action); transform: translateY(-2px); }
 
         /* --- Lively Hero --- */
         .hero {
             height: 100vh;
             display: flex; align-items: center; justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,114,255,0.2), rgba(255,255,255,0.7)),
+            background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.7)),
                         url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80');
             background-size: cover; background-position: center;
             color: var(--text-dark); padding: 0 20px;
@@ -62,12 +73,13 @@
             line-height: 1.1; margin-bottom: 20px;
             color: var(--ibis-blue);
         }
-        .hero span { color: var(--text-dark); text-decoration: underline; text-decoration-color: var(--ibis-gold); }
+        /* Changed span underline color to blue */
+        .hero span { color: var(--text-dark); text-decoration: underline; text-decoration-color: var(--ibis-blue); }
 
         /* --- Mission & Vision Section --- */
         .about-section { padding: 100px 10%; background: var(--ibis-light); border-radius: 80px 80px 0 0; }
         .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .about-card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
+        .about-card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); border-top: 5px solid var(--ibis-blue); }
         .about-card h2 { color: var(--ibis-blue); font-family: 'Playfair Display'; margin-bottom: 20px; font-size: 2rem; }
 
         /* --- Floating Section --- */
@@ -88,15 +100,16 @@
         .card-body { padding: 35px; text-align: left; }
         .card-body h3 { font-size: 1.8rem; color: var(--ibis-blue); margin-bottom: 15px; }
 
+        /* Changed button from Gold to Blue */
         .btn-gold {
             display: inline-block; padding: 18px 40px;
-            background: var(--ibis-gold); color: #000;
+            background: var(--ibis-blue); color: #ffffff;
             text-decoration: none; font-weight: 800; border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(255,215,0,0.3);
+            box-shadow: 0 10px 20px rgba(0,114,255,0.2);
             cursor: pointer; border: none; font-family: 'Outfit';
             transition: 0.3s ease;
         }
-        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(255,215,0,0.4); }
+        .btn-gold:hover { background: var(--ibis-action); transform: translateY(-3px); box-shadow: 0 15px 25px rgba(0,114,255,0.3); }
 
         /* --- Formal Modal Form --- */
         .modal-overlay {
@@ -116,11 +129,14 @@
             width: 100%; background: var(--ibis-blue); color: white; border: none; text-decoration: none;
             display: inline-block; padding: 15px; border-radius: 12px; font-weight: 700; cursor: pointer; margin-top: 20px;
         }
+        .submit-btn:hover { background: var(--ibis-action); }
 
         /* --- Footer --- */
         footer { padding: 80px 5% 40px; background: #fff; text-align: center; border-top: 1px solid #eee; }
+        .footer-logo { height: 80px; width: 80px; border-radius: 50%; margin-bottom: 20px; border: 1px solid #eee; }
         .social-links { margin: 20px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .social-links a { color: var(--ibis-blue); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+        .social-links a { color: var(--ibis-blue); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .social-links a:hover { color: var(--ibis-action); }
         .decipher-tag { margin-top: 40px; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; color: #888; text-transform: uppercase; }
         .decipher-tag span { color: var(--ibis-blue); }
 
@@ -133,7 +149,8 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 3.2rem; }
-            nav { top: 10px; }
+            nav { top: 10px; padding: 8px 15px; }
+            .logo { height: 60px; width: 60px; }
         }
     </style>
 </head>
@@ -183,7 +200,7 @@
                 <div class="card-body">
                     <h3>Interior Design</h3>
                     <p style="color: #666; margin-bottom: 25px;">Turning empty spaces into luxury environments tailored to your lifestyle.</p>
-                    <button onclick="toggleModal()" class="btn-gold" style="background: var(--ibis-blue); color: white;">Book Design</button>
+                    <button onclick="toggleModal()" class="btn-gold">Book Design</button>
                 </div>
             </div>
 
@@ -199,7 +216,7 @@
     </section>
 
     <footer>
-        <img src="Screenshot_20260323-225453.jpg" style="height: 60px; margin-bottom: 20px; border-radius: 5px;">
+        <img src="Screenshot_20260323-225453.jpg" class="footer-logo" alt="Logo">
         <p style="color: #555; font-weight: 600;">The Ibisbrand Hub. Lagos, Nigeria.</p>
         
         <div class="social-links">
