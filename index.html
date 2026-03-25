@@ -7,11 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&family=Playfair+Display:ital,wght@0,700;1,900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ibis-blue: #00338D;
-            --ibis-light: #0072ff;
+            /* Updated to Light Blue and White Palette */
+            --ibis-blue: #0072ff; 
+            --ibis-light: #e0f0ff;
             --ibis-gold: #FFD700;
-            --glass: rgba(255, 255, 255, 0.9);
-            --bg-vibrant: #f0f7ff;
+            --glass: rgba(255, 255, 255, 0.95);
+            --bg-vibrant: #ffffff;
+            --text-dark: #2c3e50;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -19,7 +21,7 @@
         body {
             font-family: 'Outfit', sans-serif;
             background: var(--bg-vibrant);
-            color: #1a1a1a;
+            color: var(--text-dark);
             overflow-x: hidden;
         }
 
@@ -32,37 +34,44 @@
             border-radius: 50px;
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 10px 30px rgba(0,114,255,0.1);
+            border: 1px solid rgba(0,114,255,0.1);
         }
-        .logo { height: 50px; width: auto; }
+        .logo { height: 50px; width: auto; border-radius: 5px; }
         .nav-btn {
             background: var(--ibis-blue); color: white;
-            padding: 10px 20px; border-radius: 50px;
+            padding: 10px 25px; border-radius: 50px;
             text-decoration: none; font-weight: 700; font-size: 0.8rem;
-            cursor: pointer; border: none;
+            cursor: pointer; border: none; transition: 0.3s;
         }
+        .nav-btn:hover { background: #0056b3; }
 
         /* --- Lively Hero --- */
         .hero {
             height: 100vh;
             display: flex; align-items: center; justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+            background: linear-gradient(rgba(0,114,255,0.2), rgba(255,255,255,0.7)),
                         url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80');
             background-size: cover; background-position: center;
-            color: white; padding: 0 20px;
+            color: var(--text-dark); padding: 0 20px;
         }
         .hero h1 {
             font-family: 'Playfair Display', serif;
             font-size: clamp(2.8rem, 10vw, 5.5rem);
-            line-height: 1; margin-bottom: 20px;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            line-height: 1.1; margin-bottom: 20px;
+            color: var(--ibis-blue);
         }
-        .hero span { color: var(--ibis-gold); }
+        .hero span { color: var(--text-dark); text-decoration: underline; text-decoration-color: var(--ibis-gold); }
+
+        /* --- Mission & Vision Section --- */
+        .about-section { padding: 100px 10%; background: var(--ibis-light); border-radius: 80px 80px 0 0; }
+        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .about-card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
+        .about-card h2 { color: var(--ibis-blue); font-family: 'Playfair Display'; margin-bottom: 20px; font-size: 2rem; }
 
         /* --- Floating Section --- */
-        .section { padding: 80px 8%; text-align: center; }
+        .section { padding: 100px 8%; text-align: center; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
 
         .reveal { opacity: 0; transform: translateY(50px); transition: 1s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
@@ -70,12 +79,12 @@
 
         .card {
             background: white; border-radius: 40px; overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.04);
-            transition: 0.4s; border: 1px solid rgba(0,0,0,0.02);
+            box-shadow: 0 20px 50px rgba(0,114,255,0.05);
+            transition: 0.4s; border: 1px solid rgba(0,114,255,0.1);
         }
-        .card:hover { transform: scale(1.03); box-shadow: 0 30px 70px rgba(0,51,141,0.15); }
+        .card:hover { transform: scale(1.03); box-shadow: 0 30px 70px rgba(0,114,255,0.15); }
 
-        .card-img { height: 280px; width: 100%; object-fit: cover; }
+        .card-img { height: 320px; width: 100%; object-fit: cover; }
         .card-body { padding: 35px; text-align: left; }
         .card-body h3 { font-size: 1.8rem; color: var(--ibis-blue); margin-bottom: 15px; }
 
@@ -89,33 +98,29 @@
         }
         .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(255,215,0,0.4); }
 
-        /* --- NEW: Formal Modal Form --- */
+        /* --- Formal Modal Form --- */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 51, 141, 0.4); backdrop-filter: blur(10px);
+            background: rgba(0, 114, 255, 0.3); backdrop-filter: blur(10px);
             display: none; justify-content: center; align-items: center; z-index: 3000;
         }
         .modal-content {
             background: white; padding: 40px; border-radius: 30px;
-            width: 90%; max-width: 500px; position: relative;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            width: 90%; max-width: 500px; position: relative; text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
         }
         .modal-content h2 { font-family: 'Playfair Display'; color: var(--ibis-blue); margin-bottom: 10px; }
         .close-modal { position: absolute; top: 20px; right: 25px; font-size: 2rem; cursor: pointer; color: #888; }
         
-        .form-group { margin-bottom: 15px; text-align: left; }
-        .form-group label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; }
-        .form-group input, .form-group textarea {
-            width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ddd;
-            font-family: 'Outfit'; font-size: 1rem;
-        }
         .submit-btn {
-            width: 100%; background: var(--ibis-blue); color: white; border: none;
-            padding: 15px; border-radius: 12px; font-weight: 700; cursor: pointer; margin-top: 10px;
+            width: 100%; background: var(--ibis-blue); color: white; border: none; text-decoration: none;
+            display: inline-block; padding: 15px; border-radius: 12px; font-weight: 700; cursor: pointer; margin-top: 20px;
         }
 
         /* --- Footer --- */
-        footer { padding: 80px 5% 40px; background: #fff; text-align: center; }
+        footer { padding: 80px 5% 40px; background: #fff; text-align: center; border-top: 1px solid #eee; }
+        .social-links { margin: 20px 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .social-links a { color: var(--ibis-blue); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
         .decipher-tag { margin-top: 40px; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; color: #888; text-transform: uppercase; }
         .decipher-tag span { color: var(--ibis-blue); }
 
@@ -136,62 +141,57 @@
 
     <nav>
         <img src="Screenshot_20260323-225453.jpg" class="logo" alt="IBISBRAND">
-        <button onclick="toggleModal()" class="nav-btn">ENQUIRE</button>
+        <button onclick="toggleModal()" class="nav-btn">GET STARTED</button>
     </nav>
 
     <header class="hero">
         <div class="reveal">
-            <h1>Elevate Your <span>Lifestyle.</span></h1>
-            <p style="font-size: 1.3rem; margin-bottom: 40px; font-weight: 300;">Experience the Art of Bespoke Living.</p>
-            <button onclick="toggleModal()" class="btn-gold">Request a Private Consultation</button>
+            <h1>Elevate Your <br><span>Lifestyle.</span></h1>
+            <p style="font-size: 1.3rem; margin-bottom: 40px; font-weight: 400; color: #555;">Bespoke Interiors & Premium Finishes.</p>
+            <button onclick="toggleModal()" class="btn-gold">Consult Our Design Team</button>
         </div>
     </header>
+
+    <section class="about-section">
+        <div class="about-grid">
+            <div class="about-card reveal">
+                <h2>Our Mission</h2>
+                <p style="line-height: 1.8; color: #555;">Our mission is to inspire creativity and transform spaces through high-quality paint products and innovative interior design solutions. We are dedicated to enhancing the beauty and functionality of every environment we touch, providing our customers with the tools and expertise to express their unique style and personality.</p>
+            </div>
+            <div class="about-card reveal">
+                <h2>Our Vision</h2>
+                <p style="line-height: 1.8; color: #555;">To be the leading provider of premium paint products and cutting-edge interior design services, setting the standard for excellence and creativity in the industry. We envision a world where every space reflects the individuality and vision of its occupants, creating inspiring and harmonious environments that enrich lives.</p>
+            </div>
+        </div>
+    </section>
 
     <div class="modal-overlay" id="contactModal">
         <div class="modal-content">
             <span class="close-modal" onclick="toggleModal()">&times;</span>
             <h2>Refine Your Space</h2>
-            <p style="margin-bottom: 25px; color: #666;">Provide your details below, and our lead designer will reach out to you.</p>
-            
-            <form action="#">
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" placeholder="e.g. Alexander Sterling" required>
-                </div>
-                <div class="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" placeholder="+234..." required>
-                </div>
-                <div class="form-group">
-                    <label>Inquiry Type</label>
-                    <select style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-family: 'Outfit';">
-                        <option>Full Interior Remodel</option>
-                        <option>Premium Paint Consultation</option>
-                        <option>Bespoke Furniture</option>
-                    </select>
-                </div>
-                <button type="submit" class="submit-btn">SEND REQUEST</button>
-            </form>
+            <p style="margin-bottom: 25px; color: #666;">Please complete our official inquiry form to begin your project.</p>
+            <a href="https://api.leadconnectorhq.com/widget/form/A8hu7li1gsIjw3yuNIHB?notrack=true" target="_blank" class="submit-btn">OPEN INQUIRY FORM</a>
+            <p style="font-size: 0.8rem; margin-top: 15px; color: #999;">Powered by LeadConnector</p>
         </div>
     </div>
 
     <section class="section">
-        <h2 class="reveal" style="font-family: 'Playfair Display'; font-size: 3rem; margin-bottom: 50px; color: var(--ibis-blue);">Our Services</h2>
+        <h2 class="reveal" style="font-family: 'Playfair Display'; font-size: 3rem; margin-bottom: 50px; color: var(--ibis-blue);">Our Expertise</h2>
         <div class="grid">
             <div class="card reveal">
                 <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80" class="card-img" alt="Interior">
                 <div class="card-body">
                     <h3>Interior Design</h3>
-                    <p style="color: #666; margin-bottom: 25px;">Turning empty spaces into luxury environments tailored to your taste.</p>
+                    <p style="color: #666; margin-bottom: 25px;">Turning empty spaces into luxury environments tailored to your lifestyle.</p>
                     <button onclick="toggleModal()" class="btn-gold" style="background: var(--ibis-blue); color: white;">Book Design</button>
                 </div>
             </div>
 
             <div class="card reveal">
-                <img src="https://images.unsplash.com/photo-1623835255306-868c63d9335e?auto=format&fit=crop&w=600&q=80" class="card-img" alt="Paints">
+                <img src="IMG-20260325-WA0024.jpg" class="card-img" alt="IBISBRAND Paints">
                 <div class="card-body">
                     <h3>Premium Paints</h3>
-                    <p style="color: #666; margin-bottom: 25px;">Exotic color palettes and high-durability coatings for a perfect finish.</p>
+                    <p style="color: #666; margin-bottom: 25px;">Exotic color palettes and high-durability coatings for a flawless finish.</p>
                     <button onclick="toggleModal()" class="btn-gold">Order Paint</button>
                 </div>
             </div>
@@ -199,12 +199,20 @@
     </section>
 
     <footer>
-        <img src="Screenshot_20260323-225453.jpg" style="height: 60px; margin-bottom: 20px;">
-        <p style="color: #555;">&copy; 2026 The Ibisbrand Hub. Lagos, Nigeria.</p>
+        <img src="Screenshot_20260323-225453.jpg" style="height: 60px; margin-bottom: 20px; border-radius: 5px;">
+        <p style="color: #555; font-weight: 600;">The Ibisbrand Hub. Lagos, Nigeria.</p>
+        
+        <div class="social-links">
+            <a href="https://www.instagram.com/ibisbrandnigeria" target="_blank">Instagram (Paints)</a>
+            <a href="https://www.instagram.com/theibisbrandhub" target="_blank">Instagram (General)</a>
+            <a href="https://www.facebook.com/THEIBISBRANDHUB" target="_blank">Facebook</a>
+        </div>
+
+        <p style="color: #888; font-size: 0.9rem;">&copy; 2026 All Rights Reserved.</p>
         <div class="decipher-tag">Powered by <span>DECIPHER-IT</span></div>
     </footer>
 
-    <a href="https://wa.me/2347055643534" class="wa-float">
+    <a href="https://wa.me/2347055643534" class="wa-float" target="_blank">
         <svg width="35" height="35" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
     </a>
 
