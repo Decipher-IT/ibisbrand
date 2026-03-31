@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects - Ibis Brand Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Gallery Page Styles */
+        .gallery-hero {
+            background: linear-gradient(rgba(0, 51, 102), rgba(0, 51, 102)), url('images/gallery-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+        
+        .gallery-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .projects-gallery {
+            padding: 3rem 0;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .projects-gallery h2 {
+            color: #003366;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        
+        .project-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .project-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-item:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-info {
+            background: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .project-info h3 {
+            color: #003366;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-info p {
+            color: #666;
+        }
+        
+        /* Responsive Gallery */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Header content from previous section -->
+    </header>
+
+    <section class="gallery-hero">
+        <h1>Our Completed Projects</h1>
+        <p>See our work across different locations</p>
+    </section>
+
+    <section class="projects-gallery">
+        <h2>Project Portfolio</h2>
+        <div class="gallery-grid">
+            <div class="project-item">
+                <div class="project-img">
+                    <img src="IMG_0150.jpeg" alt="Luxury Villa Project">
+                </div>
+                <div class="project-info">
+                    <h3>Luxury Villa</h3>
+                    <p>Ikoyi, Lagos</p>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="project-img">
+                    <img src="IMG_0162.jpeg" alt="Office Complex">
+                </div>
+                <div class="project-info">
+                    <h3>Corporate Office Complex</h3>
+                    <p>Victoria Island, Lagos</p>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="project-img">
+                    <img src="IMG_0168.jpeg" alt="Residential Duplex">
+                </div>
+                <div class="project-info">
+                    <h3>Residential Duplex</h3>
+                    <p>Lekki Phase 1, Lagos</p>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="project-img">
+                    <img src="IMG_0148.jpeg" alt="Hotel Interior">
+                </div>
+                <div class="project-info">
+                    <h3>5-Star Hotel Interior</h3>
+                    <p>Abuja</p>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="project-img">
+                    <img src="IMG_0168.jpeg" alt="Shopping Mall">
+                </div>
+                <div class="project-info">
+                    <h3>Shopping Mall</h3>
+                    <p>Ibadan, Oyo State</p>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="project-img">
+                    <img src="IMG_0146.jpeg" alt="Apartment Building">
+                </div>
+                <div class="project-info">
+                    <h3>Apartment Complex</h3>
+                    <p>Port Harcourt</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- Footer content -->
+    </footer>
+    <script scr="js/main.js"></script>
+</body>
+</html>
