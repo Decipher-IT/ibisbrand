@@ -9,15 +9,15 @@
     <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 
     <style>
-        /* Global Styles - Updated Color Scheme */
+        /* Global Styles */
         :root {
-            --primary: #003366;   /* Dark blue (similar to Hamrex header) */
-            --secondary: #00a0e1; /* Bright blue (similar to Hamrex accents) */
-            --accent: #ff6b00;    /* Orange (similar to Hamrex buttons) */
-            --light: #f8f9fa;     /* Light background */
-            --dark: #222;          /* Dark text */
-            --text: #333;          /* Main text */
-            --light-text: #6c757d;/* Secondary text */
+            --primary: #003366;   
+            --secondary: #00a0e1; 
+            --accent: #ff6b00;    
+            --light: #f8f9fa;     
+            --dark: #222;          
+            --text: #333;          
+            --light-text: #6c757d;
         }
         
         * {
@@ -80,7 +80,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        /* Header Styles - Updated Colors */
+        /* Header Styles */
         header {
             position: fixed;
             top: 0;
@@ -89,9 +89,8 @@
             z-index: 1000;
             transition: all 0.3s ease;
             padding: 15px 0;
-            background: rgba(0, 51, 102); /* Semi-transparent dark blue */
+            background: rgba(0, 51, 102); 
             box-shadow: 0 2px 10px rgba(0, 51, 102);
-            --primary: #003366;   /* Dark blue (similar to Hamrex header) */
         }
         
         header.scrolled {
@@ -168,7 +167,7 @@
             cursor: pointer;
         }
         
-        /* Hero Section - Updated Colors */
+        /* Hero Section */
         .hero {
             height: 100vh;
             position: relative;
@@ -192,7 +191,7 @@
             max-width: 600px;
             color: white;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-            background: rgba(10, 37, 64, 0.7); /* Semi-transparent dark blue */
+            background: rgba(10, 37, 64, 0.7); 
             padding: 30px;
             border-radius: 8px;
         }
@@ -208,7 +207,7 @@
             margin-bottom: 30px;
         }
         
-        /* Mission Section - Updated Colors */
+        /* Mission Section */
         .mission {
             background: var(--light);
         }
@@ -224,8 +223,7 @@
             background: white;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 5px;rgba (0,0,0,0.05);
-            box-shadow: 0 5px 15px ;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s ease;
         }
         
@@ -246,7 +244,7 @@
             margin-bottom: 20px;
         }
         
-        /* Gallery Section - Updated Colors */
+        /* Gallery Section */
         .gallery {
             text-align: center;
             background: var(--light);
@@ -283,7 +281,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(10, 37, 64, 0.9); /* Dark blue overlay */
+            background: rgba(10, 37, 64, 0.9); 
             color: white;
             padding: 15px;
             transform: translateY(100%);
@@ -294,7 +292,7 @@
             transform: translateY(0);
         }
         
-        /* Footer - Updated Colors */
+        /* Footer */
         footer {
             background: var(--primary);
             color: white;
@@ -323,7 +321,7 @@
             left: 0;
             width: 40px;
             height: 2px;
-            background: var(--primary);
+            background: var(--secondary);
         }
         
         .footer-col p {
@@ -367,7 +365,7 @@
             font-size: 0.9rem;
         }
 
-        /* Floating WhatsApp Button Styles */
+        /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -390,9 +388,9 @@
         
         .whatsapp-float:hover {
             transform: scale(1.1);
-            color: #FFF;
         }
         
+        /* Responsive Design */
         @media (max-width: 768px) {
             .mobile-menu-btn { display: block; }
             nav {
@@ -403,13 +401,11 @@
                 height: calc(100vh - 80px);
                 background: var(--primary);
                 transition: all 0.3s ease;
-                box-shadow: 2px 0 10px rgba(0,0,0,0.1);
                 z-index: 999;
             }
             nav.active { left: 0; }
             nav ul { flex-direction: column; padding: 30px; }
             nav ul li { margin: 15px 0; }
-            .hero-content { left: 5%; right: 5%; max-width: 100%; }
             .hero-content h1 { font-size: 2rem; }
         }
     </style>
@@ -422,7 +418,7 @@
     <header id="header">
         <div class="container header-container">
             <div class="logo">
-                <img src="Logo 1.png" alt="/Logo1.png">
+                <img src="Logo 1.png" alt="Logo">
                 <div class="logo-text">
                     <span>THE IBISBRAND HUB</span>
                 </div>
@@ -445,18 +441,16 @@
     <section class="hero" id="home">
         <video autoplay muted loop class="hero-video">
             <source src="hero-vid.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
         <div class="hero-content">
             <h1>THE IBISBRAND HUB</h1>
-            <p>Transforming spaces with our Premium paints, building materials, and interior finishing solutions for residential and commercial projects.</p>
+            <p>Transforming spaces with our Premium paints, building materials, and interior finishing solutions.</p>
             
             <button 
                 class="btn" 
                 data-ad-feedback="false" 
                 data-form-id="A8hu7li1gsIjw3yuNIHB" 
-                data-portal-id="https://api.leadconnectorhq.com"
-                onclick="window.parent.postMessage('open-form-A8hu7li1gsIjw3yuNIHB', '*')">
+                data-portal-id="https://api.leadconnectorhq.com">
                 Book a Call
             </button>
         </div>
@@ -467,25 +461,19 @@
             <h2>Our Vision, Mission & Promise.</h2>
             <div class="mission-grid">
                 <div class="mission-card">
-                    <div class="mission-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
+                    <div class="mission-icon"><i class="fas fa-eye"></i></div>
                     <h3>Our Vision</h3>
-                    <p>To be the leading provider of premium paint products, building materials and cutting-edge interior design services, setting the standard for excellence and creativity in the industry. We envision a world where every space, whether residential or commercial, reflects the individuality and vision of its occupants, creating inspiring and harmonious environments that enrich lives.</p>
+                    <p>To be the leading provider of premium paint products and cutting-edge interior design services.</p>
                 </div>
                 <div class="mission-card">
-                    <div class="mission-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
+                    <div class="mission-icon"><i class="fas fa-bullseye"></i></div>
                     <h3>Our Mission</h3>
-                    <p>Our mission is to inspire creativity and transform spaces through high-quality paint products, building materials and innovative interior design solutions. We are dedicated to enhancing the beauty and functionality of every environment we touch, providing our customers with the tools and expertise to express their unique style and personality.</p>
+                    <p>To inspire creativity and transform spaces through high-quality products and innovative solutions.</p>
                 </div>
                 <div class="mission-card">
-                    <div class="mission-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
+                    <div class="mission-icon"><i class="fas fa-handshake"></i></div>
                     <h3>Our Promise</h3>
-                    <p>Quality assurance, timely delivery, competitive pricing, and professional guidance for all your painting, construction, and interior design needs.</p>
+                    <p>Quality assurance, timely delivery, and professional guidance for all your needs.</p>
                 </div>
             </div>
         </div>
@@ -494,50 +482,10 @@
     <section class="gallery" id="gallery">
         <div class="container">
             <h2>Our Portfolio</h2>
-            <p>Explore our recent projects showcasing our expertise in paints, building materials, and interior finishing.</p>
             <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="IMG_0169.jpeg" alt="Residential Project">
-                    <div class="gallery-overlay">
-                        <h3>Luxury Villa</h3>
-                        <p>Complete interior finishing</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="IMG_0148.jpeg" alt="Commercial Project">
-                    <div class="gallery-overlay">
-                        <h3>Office Complex</h3>
-                        <p>Exterior painting & cladding</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="IMG_0162.jpeg" alt="Interior Design">
-                    <div class="gallery-overlay">
-                        <h3>Modern Apartment</h3>
-                        <p>Custom wall finishes</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="IMG_0167.jpeg" alt="Building Materials">
-                    <div class="gallery-overlay">
-                        <h3>Construction Project</h3>
-                        <p>Material supply & supervision</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="IMG_0167.jpeg" alt="Special Finishes">
-                    <div class="gallery-overlay">
-                        <h3>Boutique Hotel</h3>
-                        <p>Decorative wall treatments</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="IMG_0150.jpeg" alt="Renovation Project">
-                    <div class="gallery-overlay">
-                        <h3>Historic Building</h3>
-                        <p>Restoration & repainting</p>
-                    </div>
-                </div>
+                <div class="gallery-item"><img src="IMG_0169.jpeg" alt="Project 1"></div>
+                <div class="gallery-item"><img src="IMG_0148.jpeg" alt="Project 2"></div>
+                <div class="gallery-item"><img src="IMG_0162.jpeg" alt="Project 3"></div>
             </div>
         </div>
     </section>
@@ -547,27 +495,16 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3>THE IBISBRAND HUB</h3>
-                    <p>Leading provider of premium paints, building materials, and interior finishing solutions for discerning clients across Africa.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
                     <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i>Lagos, Nigeria</p>
-                    <p><i class="fas fa-map-marker-alt"></i>Port Harcourt, Rivers State, Nigeria</p>
                     <p><i class="fas fa-phone"></i> +234 806 519 3738</p>
                     <p><i class="fas fa-envelope"></i> info@ibisbrandhub.com</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Business Hours</h3>
-                    <p><i class="fas fa-clock"></i> Monday - Friday: 8:00 AM - 6:00 PM</p>
-                    <p><i class="fas fa-clock"></i> Saturday: 9:00 AM - 4:00 PM</p>
-                    <p><i class="fas fa-clock"></i> Sunday: Closed</p>
                 </div>
             </div>
             <div class="copyright">
@@ -580,43 +517,14 @@
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainNav = document.getElementById('mainNav');
-        mobileMenuBtn.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking a link
-        const navLinks = document.querySelectorAll('#mainNav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mainNav.classList.remove('active');
-            });
-        });
+        mobileMenuBtn.addEventListener('click', () => mainNav.classList.toggle('active'));
         
         // Header scroll effect
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
         });
     </script>
-    <script src="js/main.js"></script>
 </body>
 </html>
