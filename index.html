@@ -367,7 +367,7 @@
             font-size: 0.9rem;
         }
 
-        /* Floating WhatsApp Button */
+        /* Floating WhatsApp Button Styles */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -393,18 +393,8 @@
             color: #FFF;
         }
         
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-        }
-        
         @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            
+            .mobile-menu-btn { display: block; }
             nav {
                 position: fixed;
                 top: 80px;
@@ -416,29 +406,11 @@
                 box-shadow: 2px 0 10px rgba(0,0,0,0.1);
                 z-index: 999;
             }
-            
-            nav.active {
-                left: 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                padding: 30px;
-            }
-            
-            nav ul li {
-                margin: 15px 0;
-            }
-            
-            .hero-content {
-                left: 5%;
-                right: 5%;
-                max-width: 100%;
-            }
-            
-            .hero-content h1 {
-                font-size: 2rem;
-            }
+            nav.active { left: 0; }
+            nav ul { flex-direction: column; padding: 30px; }
+            nav ul li { margin: 15px 0; }
+            .hero-content { left: 5%; right: 5%; max-width: 100%; }
+            .hero-content h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -608,7 +580,6 @@
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainNav = document.getElementById('mainNav');
-        
         mobileMenuBtn.addEventListener('click', () => {
             mainNav.classList.toggle('active');
         });
@@ -635,10 +606,8 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
