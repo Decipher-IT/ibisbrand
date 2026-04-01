@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IBISBRAND HUB - Premium Paint & Building Materials</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+
     <style>
         /* Global Styles - Updated Color Scheme */
         :root {
@@ -12,8 +15,8 @@
             --secondary: #00a0e1; /* Bright blue (similar to Hamrex accents) */
             --accent: #ff6b00;    /* Orange (similar to Hamrex buttons) */
             --light: #f8f9fa;     /* Light background */
-            --dark: #222;         /* Dark text */
-            --text: #333;         /* Main text */
+            --dark: #222;          /* Dark text */
+            --text: #333;          /* Main text */
             --light-text: #6c757d;/* Secondary text */
         }
         
@@ -363,6 +366,32 @@
             color: rgba(255,255,255,0.7);
             font-size: 0.9rem;
         }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: #FFF;
+        }
         
         /* Responsive Design */
         @media (max-width: 992px) {
@@ -414,13 +443,15 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <a href="https://wa.me/2347055643534" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <header id="header">
         <div class="container header-container">
             <div class="logo">
                 <img src="Logo 1.png" alt="/Logo1.png">
                 <div class="logo-text">
-                    
                     <span>THE IBISBRAND HUB</span>
                 </div>
             </div>
@@ -439,7 +470,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <video autoplay muted loop class="hero-video">
             <source src="hero-vid.mp4" type="video/mp4">
@@ -448,11 +478,18 @@
         <div class="hero-content">
             <h1>THE IBISBRAND HUB</h1>
             <p>Transforming spaces with our Premium paints, building materials, and interior finishing solutions for residential and commercial projects.</p>
-            <a href="#contact" class="btn">Book a Call</a>
+            
+            <button 
+                class="btn" 
+                data-ad-feedback="false" 
+                data-form-id="A8hu7li1gsIjw3yuNIHB" 
+                data-portal-id="https://api.leadconnectorhq.com"
+                onclick="window.parent.postMessage('open-form-A8hu7li1gsIjw3yuNIHB', '*')">
+                Book a Call
+            </button>
         </div>
     </section>
 
-    <!-- Mission Section -->
     <section class="mission" id="about">
         <div class="container">
             <h2>Our Vision, Mission & Promise.</h2>
@@ -482,7 +519,6 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
     <section class="gallery" id="gallery">
         <div class="container">
             <h2>Our Portfolio</h2>
@@ -534,7 +570,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer id="contact">
         <div class="container">
             <div class="footer-grid">
@@ -613,6 +648,6 @@
             });
         });
     </script>
-    <script scr="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
