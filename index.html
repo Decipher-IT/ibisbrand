@@ -444,8 +444,8 @@
     </header>
 
     <section class="hero" id="home">
-        <video autoplay muted loop class="hero-video">
-            <source src="hero-vid.mp4#t=2,19,28" type="video/mp4">
+        <video autoplay muted loop class="hero-video" id="heroVideo">
+            <source src="hero-vid.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="hero-content">
@@ -577,6 +577,28 @@
     </footer>
 
     <script>
+        // VIDEO EDIT LOGIC
+        const video = document.getElementById('heroVideo');
+
+        // Start at second 3 immediately
+        video.addEventListener('loadedmetadata', function() {
+            video.currentTime = 3;
+        });
+
+        // Monitor time for the middle jump and loop correction
+        video.addEventListener('timeupdate', function() {
+            // Jump from second 19 to 28
+            if (video.currentTime >= 19 && video.currentTime < 28) {
+                video.currentTime = 28;
+            }
+        });
+
+        // Ensure when video loops, it restarts at 3s instead of 0s
+        video.addEventListener('ended', function() {
+            video.currentTime = 3;
+            video.play();
+        });
+
         // Form Trigger Function
         function triggerLeadForm() {
             window.parent.postMessage('open-form-A8hu7li1gsIjw3yuNIHB', '*');
