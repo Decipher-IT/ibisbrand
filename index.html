@@ -577,27 +577,31 @@
     </footer>
 
     <script>
-        // VIDEO EDIT LOGIC
+        /* --- VIDEO TIMING LOGIC --- */
         const video = document.getElementById('heroVideo');
 
-        // Start at second 3 immediately
+        // Force start at 3 seconds when video is ready
         video.addEventListener('loadedmetadata', function() {
             video.currentTime = 3;
         });
 
-        // Monitor time for the middle jump and loop correction
         video.addEventListener('timeupdate', function() {
-            // Jump from second 19 to 28
+            // Cut #1: Jump from 19 to 28
             if (video.currentTime >= 19 && video.currentTime < 28) {
                 video.currentTime = 28;
             }
+            // Cut #2: Jump from 30 to 36
+            if (video.currentTime >= 30 && video.currentTime < 36) {
+                video.currentTime = 36;
+            }
         });
 
-        // Ensure when video loops, it restarts at 3s instead of 0s
+        // Loop handler: Ensure it restarts at 3s, not 0s
         video.addEventListener('ended', function() {
             video.currentTime = 3;
             video.play();
         });
+
 
         // Form Trigger Function
         function triggerLeadForm() {
