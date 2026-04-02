@@ -104,29 +104,14 @@
             align-items: center;
         }
         
-        /* Updated Logo Styles */
         .logo {
             display: flex;
             align-items: center;
         }
         
-        .logo-circle {
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            margin-right: 15px;
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .logo-circle img {
-            width: 90%;
-            height: 90%;
-            object-fit: contain;
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
         }
         
         .logo-text {
@@ -439,9 +424,7 @@
     <header id="header">
         <div class="container header-container">
             <div class="logo">
-                <div class="logo-circle">
-                    <img src="Screenshot_20260323-225453.jpg" alt="IBISBRAND HUB Logo">
-                </div>
+                <img src="Logo 1.png" alt="IBISBRAND Logo">
                 <div class="logo-text">
                     <span>THE IBISBRAND HUB</span>
                 </div>
@@ -566,10 +549,10 @@
                     <h3>THE IBISBRAND HUB</h3>
                     <p>Leading provider of premium paints, building materials, and interior finishing solutions for discerning clients across Africa.</p>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/THEIBISBRANDHUB" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/theibisbrandhub" target="_blank" title="General Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.instagram.com/ibisbrandnigeria" target="_blank" title="Paint Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/THEIBISBRANDHUB" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/theibisbrandhub" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/ibisbrandnigeria" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@theibisbrandhub" target="_blank"><i class="fab fa-youtube"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
@@ -631,7 +614,7 @@
             }
         });
         
-        // Smooth scrolling for anchor links (Modified slightly to ignore external links like Product.html)
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 if (this.getAttribute('href').startsWith('#')) {
