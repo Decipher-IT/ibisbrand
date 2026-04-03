@@ -109,9 +109,15 @@
             align-items: center;
         }
         
+        /* UPDATED LOGO STYLES FOR CIRCULAR BLEND */
         .logo img {
-            height: 50px;
-            margin-right: 10px;
+            height: 55px;
+            width: 55px; /* Added width for perfect circle */
+            margin-right: 12px;
+            border-radius: 50%; /* Makes it a circle */
+            object-fit: cover; /* Prevents stretching */
+            border: 2px solid rgba(255, 255, 255, 0.2); /* Subtle blend border */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         
         .logo-text {
@@ -423,7 +429,7 @@
     <header id="header">
         <div class="container header-container">
             <div class="logo">
-                <img src="Logo 1.png" alt="IBISBRAND Logo">
+                <img src="1775200191341.jpg" alt="IBISBRAND Logo">
                 <div class="logo-text">
                     <span>THE IBISBRAND HUB</span>
                 </div>
@@ -579,32 +585,25 @@
     <script>
         const video = document.getElementById('heroVideo');
 
-        // Prevent initial 0s frame
         video.addEventListener('loadedmetadata', function() {
             video.currentTime = 3.1; 
         });
 
         video.addEventListener('timeupdate', function() {
-            // Safety: If somehow it resets to before 3s, skip back to 3.1s immediately
             if (video.currentTime < 3) {
                 video.currentTime = 3.1;
             }
-
-            // Cut #1: 19s to 28s
             if (video.currentTime >= 19 && video.currentTime < 28) {
                 video.currentTime = 28;
             }
-            // Cut #2: 30s to 36s
             if (video.currentTime >= 30 && video.currentTime < 36) {
                 video.currentTime = 36;
             }
-            // Cut #3: 36s to 42s
             if (video.currentTime >= 36 && video.currentTime < 42) {
                 video.currentTime = 42;
             }
         });
 
-        // MANUALLY handle looping to bypass the 0s mark
         video.addEventListener('ended', function() {
             video.currentTime = 3.1;
             video.play();
