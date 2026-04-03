@@ -444,7 +444,7 @@
     </header>
 
     <section class="hero" id="home">
-        <video autoplay muted loop class="hero-video" id="heroVideo">
+        <video autoplay muted class="hero-video" id="heroVideo">
             <source src="hero-vid.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -579,13 +579,13 @@
     <script>
         const video = document.getElementById('heroVideo');
 
-        // Force jump past first 3 seconds on initial load
+        // Prevent initial 0s frame
         video.addEventListener('loadedmetadata', function() {
             video.currentTime = 3.1; 
         });
 
         video.addEventListener('timeupdate', function() {
-            // Prevent accidental backward scrubbing or glitches to start
+            // Safety: If somehow it resets to before 3s, skip back to 3.1s immediately
             if (video.currentTime < 3) {
                 video.currentTime = 3.1;
             }
@@ -604,7 +604,7 @@
             }
         });
 
-        // Loop handler: Ensure it never hits 0s
+        // MANUALLY handle looping to bypass the 0s mark
         video.addEventListener('ended', function() {
             video.currentTime = 3.1;
             video.play();
