@@ -5,19 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Products - Ibis Brand Hub</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Products Page Styles */
         :root {
-            --primary: #003366;   /* Dark blue (similar to Hamrex header) */
-            --secondary: #00a0e1; /* Bright blue (similar to Hamrex accents) */
-            --accent: #ff6b00;    /* Orange (similar to Hamrex buttons) */
-            --light: #f8f9fa;     /* Light background */
-            --dark: #222;         /* Dark text */
-            --text: #333;         /* Main text */
-            --light-text: #6c757d;/* Secondary text */
+            --primary: #003366;   
+            --secondary: #00a0e1; 
+            --accent: #ff6b00;    
+            --light: #f8f9fa;     
+            --dark: #222;         
+            --text: #333;         
+            --light-text: #6c757d;
         }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         .products-hero {
-            background: linear-gradient(rgba(0, 51, 102), rgba(0, 51, 102)), url('images/products-bg.jpg');
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('images/products-bg.jpg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -42,8 +51,8 @@
         }
         
         .category h2 {
-            color: #003366;
-            border-bottom: 2px solid #FFA500;
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
         }
@@ -59,6 +68,7 @@
             border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
+            background: #fff;
         }
         
         .product-card:hover {
@@ -67,7 +77,7 @@
         }
         
         .product-img {
-            height: 200px;
+            height: 300px;
             background-color: #f5f5f5;
             display: flex;
             align-items: center;
@@ -75,44 +85,34 @@
         }
         
         .product-img img {
-            max-width: 100%;
-            max-height: 100%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
         
         .product-info {
-            padding: 1.5rem;
+            padding: 1rem;
+            text-align: center;
         }
         
         .product-info h3 {
-            margin-bottom: 0.5rem;
-            color: #003366;
+            font-size: 1.1rem;
+            color: var(--primary);
         }
-        
-        .product-info p {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-        
-        .price {
-            font-weight: bold;
-            color: #FFA500;
-            font-size: 1.2rem;
-        }
-        
-        /* Responsive Products */
-        @media (max-width: 600px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    /* Footer - Updated Colors */
-    footer {
+
+        /* Footer */
+        footer {
             background: var(--primary);
             color: white;
             padding: 60px 0 20px;
         }
         
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -135,7 +135,7 @@
             left: 0;
             width: 40px;
             height: 2px;
-            background: var(--primary);
+            background: var(--secondary);
         }
         
         .footer-col p {
@@ -164,6 +164,7 @@
             color: white;
             border-radius: 50%;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
         
         .social-links a:hover {
@@ -179,176 +180,73 @@
             font-size: 0.9rem;
         }
         
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
+        @media (max-width: 600px) {
+            .products-grid {
+                grid-template-columns: 1fr;
             }
         }
-        
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
-
     </style>
 </head>
 <body>
-    <header>
-        <!-- Header content from previous section -->
-    </header>
 
     <section class="products-hero">
-        <h1>Our Quality Products</h1>
-        <p>Premium materials for your construction and decoration needs</p>
+        <h1>Our Premium Collections</h1>
+        <p>Explore our exclusive range of paints, building materials, and interior solutions.</p>
     </section>
 
     <section class="product-categories">
         <div class="category">
-            <h2>Paints & Coatings</h2>
+            <h2>Featured Products</h2>
             <div class="products-grid">
+                
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="IMG_0147.jpeg" alt="Premium Emulsion Paint">
-                    </div>
-                    <div class="product-info">
-                        <h3>Premium Emulsion</h3>
-                        <p>High quality interior paint with excellent coverage</p>
-                        <p class="price">₦8,500 per 4L</p>
+                        <img src="IMG-20260404-WA0020.jpg" alt="Ibis Brand Product">
                     </div>
                 </div>
                 
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="IMG_0165.jpeg" alt="Exterior Weathershield">
-                    </div>
-                    <div class="product-info">
-                        <h3>Exterior Weathershield</h3>
-                        <p>Weather-resistant exterior paint with 5-year guarantee</p>
-                        <p class="price">₦12,000 per 4L</p>
+                        <img src="IMG-20260404-WA0019.jpg" alt="Ibis Brand Product">
                     </div>
                 </div>
                 
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="IMG_0165.jpeg" alt="Satinwood Paint">
-                    </div>
-                    <div class="product-info">
-                        <h3>Satinwood Finish</h3>
-                        <p>Smooth wood and metal finish with durable protection</p>
-                        <p class="price">₦9,800 per 2.5L</p>
+                        <img src="IMG-20260404-WA0018.jpg" alt="Ibis Brand Product">
                     </div>
                 </div>
                 
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="IMG_0165.jpeg" alt="Textured Paint">
-                    </div>
-                    <div class="product-info">
-                        <h3>Textured Coating</h3>
-                        <p>Decorative textured finish for walls and ceilings</p>
-                        <p class="price">₦15,000 per 5L</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="category">
-            <h2>Building Materials</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="Logo 1.png" alt="Portland Cement">
-                    </div>
-                    <div class="product-info">
-                        <h3>Portland Cement (50kg)</h3>
-                        <p>High strength construction cement</p>
-                        <p class="price">₦4,200 per bag</p>
+                        <img src="IMG-20260404-WA0017.jpg" alt="Ibis Brand Product">
                     </div>
                 </div>
                 
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="images/rods.jpg" alt="Iron Rods">
-                    </div>
-                    <div class="product-info">
-                        <h3>Iron Rods (12mm)</h3>
-                        <p>High tensile strength reinforcement rods</p>
-                        <p class="price">₦3,800 per length</p>
+                        <img src="IMG-20260404-WA0016.jpg" alt="Ibis Brand Product">
                     </div>
                 </div>
                 
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="images/block.jpg" alt="Concrete Blocks">
-                    </div>
-                    <div class="product-info">
-                        <h3>9" Concrete Blocks</h3>
-                        <p>Standard 9-inch hollow blocks</p>
-                        <p class="price">₦350 per unit</p>
+                        <img src="IMG-20260404-WA0015.jpg" alt="Ibis Brand Product">
                     </div>
                 </div>
                 
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="images/plywood.jpg" alt="Marine Plywood">
-                    </div>
-                    <div class="product-info">
-                        <h3>Marine Plywood (12mm)</h3>
-                        <p>Water-resistant plywood for all applications</p>
-                        <p class="price">₦12,500 per sheet</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="category">
-            <h2>Interior Decor & Furnitures</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="images/sofa.jpg" alt="Luxury Sofa Set">
-                    </div>
-                    <div class="product-info">
-                        <h3>Luxury 5-Seater Sofa</h3>
-                        <p>Premium leather sofa set with cushions</p>
-                        <p class="price">₦450,000 (set)</p>
+                        <img src="IMG-20260404-WA0014.jpg" alt="Ibis Brand Product">
                     </div>
                 </div>
                 
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="images/dining.jpg" alt="Dining Set">
-                    </div>
-                    <div class="product-info">
-                        <h3>6-Seater Dining Set</h3>
-                        <p>Solid wood dining table with upholstered chairs</p>
-                        <p class="price">₦320,000 (set)</p>
+                        <img src="IMG-20260404-WA0013.jpg" alt="Ibis Brand Product">
                     </div>
                 </div>
-                
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="images/wardrobe.jpg" alt="Built-in Wardrobe">
-                    </div>
-                    <div class="product-info">
-                        <h3>Built-in Wardrobe</h3>
-                        <p>Custom fitted wardrobe with sliding doors</p>
-                        <p class="price">₦180,000 - ₦350,000</p>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="images/lighting.jpg" alt="Modern Lighting">
-                    </div>
-                    <div class="product-info">
-                        <h3>Modern Chandelier</h3>
-                        <p>Elegant ceiling lighting fixture</p>
-                        <p class="price">₦85,000 - ₦220,000</p>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
@@ -360,18 +258,17 @@
                     <h3>THE IBISBRAND HUB</h3>
                     <p>Leading provider of premium paints, building materials, and interior finishing solutions for discerning clients across Africa.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/THEIBISBRANDHUB" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/theibisbrandhub" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/theibisbrandhub" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@theibisbrandhub" target="_blank"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
                     <h3>Contact Us</h3>
                     <p><i class="fas fa-map-marker-alt"></i>Lagos, Nigeria</p>
                     <p><i class="fas fa-map-marker-alt"></i>Port Harcourt, Rivers State, Nigeria</p>
-                    <p><i class="fas fa-phone"></i> +234 806 519 3738</p>
+                    <p><i class="fas fa-phone"></i> +234 705 564 3534</p>
                     <p><i class="fas fa-envelope"></i> info@ibisbrandhub.com</p>
                 </div>
                 <div class="footer-col">
@@ -382,36 +279,18 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 THE IBISBRAND HUB. All Rights Reserved.</p>
+                <p>&copy; 2026 THE IBISBRAND HUB. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-        
-        
-    </footer>
+
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mainNav = document.getElementById('mainNav');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking a link
-        const navLinks = document.querySelectorAll('#mainNav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mainNav.classList.remove('active');
-            });
-        });
-        
         // Header scroll effect
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
+            if (header && window.scrollY > 50) {
                 header.classList.add('scrolled');
-            } else {
+            } else if (header) {
                 header.classList.remove('scrolled');
             }
         });
@@ -419,21 +298,19 @@
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
         });
-        </script>
-
-    <script scr="js/main.js"></script>
+    </script>
 </body>
 </html>
