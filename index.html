@@ -112,12 +112,13 @@
         /* UPDATED LOGO STYLES FOR CIRCULAR BLEND */
         .logo img {
             height: 55px;
-            width: 55px; /* Added width for perfect circle */
+            width: 55px; /* Ensures a 1:1 aspect ratio for the circle */
             margin-right: 12px;
             border-radius: 50%; /* Makes it a circle */
-            object-fit: cover; /* Prevents stretching */
-            border: 2px solid rgba(255, 255, 255, 0.2); /* Subtle blend border */
+            object-fit: cover; /* Ensures the image fills the circle without distortion */
+            border: 2px solid rgba(255, 255, 255, 0.3); /* Subtle border to help it pop against the blue */
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            background-color: white; /* Helpful if the PNG has transparency */
         }
         
         .logo-text {
@@ -429,7 +430,7 @@
     <header id="header">
         <div class="container header-container">
             <div class="logo">
-                <img src="Logo 1.png" alt="IBISBRAND Logo">
+                <img src="Gemini_Generated_Image_gxyoymgxyoymgxyo.png" alt="IBISBRAND Logo">
                 <div class="logo-text">
                     <span>THE IBISBRAND HUB</span>
                 </div>
