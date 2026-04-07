@@ -109,16 +109,15 @@
             align-items: center;
         }
         
-        /* UPDATED LOGO STYLES FOR CIRCULAR BLEND */
         .logo img {
             height: 55px;
-            width: 55px; /* Ensures a 1:1 aspect ratio for the circle */
+            width: 55px; 
             margin-right: 12px;
-            border-radius: 50%; /* Makes it a circle */
-            object-fit: cover; /* Ensures the image fills the circle without distortion */
-            border: 2px solid rgba(255, 255, 255, 0.3); /* Subtle border to help it pop against the blue */
+            border-radius: 50%; 
+            object-fit: cover; 
+            border: 2px solid rgba(255, 255, 255, 0.3); 
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            background-color: white; /* Helpful if the PNG has transparency */
+            background-color: white; 
         }
         
         .logo-text {
@@ -371,7 +370,6 @@
             font-size: 0.9rem;
         }
 
-        /* Floating WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -477,27 +475,27 @@
                         <i class="fas fa-eye"></i>
                     </div>
                     <h3>Our Vision</h3>
-                    <p>To be the leading provider of premium paint products, building materials and cutting-edge interior design services, setting the standard for excellence and creativity in the industry. We envision a world where every space, whether residential or commercial, reflects the individuality and vision of its occupants, creating inspiring and harmonious environments that enrich lives.</p>
+                    <p>To be the leading provider of premium paint products, building materials and cutting-edge interior design services, setting the standard for excellence and creativity in the industry...</p>
                 </div>
                 <div class="mission-card">
                     <div class="mission-icon">
                         <i class="fas fa-bullseye"></i>
                     </div>
                     <h3>Our Mission</h3>
-                    <p>Our mission is to inspire creativity and transform spaces through high-quality paint products, building materials and innovative interior design solutions. We are dedicated to enhancing the beauty and functionality of every environment we touch, providing our customers with the tools and expertise to express their unique style and personality.</p>
+                    <p>Our mission is to inspire creativity and transform spaces through high-quality paint products...</p>
                 </div>
                 <div class="mission-card">
                     <div class="mission-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
                     <h3>Our Promise</h3>
-                    <p>Quality assurance, timely delivery, competitive pricing, and professional guidance for all your painting, construction, and interior design needs.</p>
+                    <p>Quality assurance, timely delivery, competitive pricing, and professional guidance...</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="gallery" id="gallery">
+    <section class="gallery" id="gallery-preview">
         <div class="container">
             <h2>Our Portfolio</h2>
             <p>Explore our recent projects showcasing our expertise in paints, building materials, and interior finishing.</p>
@@ -523,27 +521,9 @@
                         <p>Custom wall finishes</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="IMG-20260328-WA0096.jpg" alt="Building Materials">
-                    <div class="gallery-overlay">
-                        <h3>Construction Project</h3>
-                        <p>Material supply & supervision</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="IMG-20260328-WA0098.jpg" alt="Special Finishes">
-                    <div class="gallery-overlay">
-                        <h3>Boutique Hotel</h3>
-                        <p>Decorative wall treatments</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="IMG-20260328-WA0095.jpg" alt="Renovation Project">
-                    <div class="gallery-overlay">
-                        <h3>Historic Building</h3>
-                        <p>Restoration & repainting</p>
-                    </div>
-                </div>
+            </div>
+            <div style="margin-top: 40px;">
+                <a href="Gallery.html" class="btn">View Full Gallery</a>
             </div>
         </div>
     </section>
@@ -553,28 +533,21 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3>THE IBISBRAND HUB</h3>
-                    <p>Leading provider of premium paints, building materials, and interior finishing solutions for discerning clients across Africa.</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/THEIBISBRANDHUB" target="_blank"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://x.com/theibisbrandhub" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
                         <a href="https://www.instagram.com/theibisbrandhub" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.instagram.com/ibisbrandnigeria" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.youtube.com/@theibisbrandhub" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
                     <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i>Lagos, Nigeria</p>
-                    <p><i class="fas fa-map-marker-alt"></i>Port Harcourt, Rivers State, Nigeria</p>
                     <p><i class="fas fa-phone"></i> +234 705 564 3534</p>
                     <p><i class="fas fa-envelope"></i> info@ibisbrandhub.com</p>
                 </div>
                 <div class="footer-col">
                     <h3>Business Hours</h3>
                     <p><i class="fas fa-clock"></i> Monday - Friday: 8:00 AM - 6:00 PM</p>
-                    <p><i class="fas fa-phone"></i> +234 705 564 3534</p>
-                    <p><i class="fas fa-clock"></i> Sunday: Closed</p>
                 </div>
             </div>
             <div class="copyright">
@@ -585,61 +558,44 @@
 
     <script>
         const video = document.getElementById('heroVideo');
-
-        video.addEventListener('loadedmetadata', function() {
-            video.currentTime = 3.1; 
-        });
-
+        video.addEventListener('loadedmetadata', function() { video.currentTime = 3.1; });
         video.addEventListener('timeupdate', function() {
-            if (video.currentTime < 3) {
-                video.currentTime = 3.1;
-            }
-            if (video.currentTime >= 19 && video.currentTime < 28) {
-                video.currentTime = 28;
-            }
-            if (video.currentTime >= 30 && video.currentTime < 36) {
-                video.currentTime = 36;
-            }
-            if (video.currentTime >= 36 && video.currentTime < 42) {
-                video.currentTime = 42;
-            }
+            if (video.currentTime < 3) video.currentTime = 3.1;
+            if (video.currentTime >= 19 && video.currentTime < 28) video.currentTime = 28;
+            if (video.currentTime >= 30 && video.currentTime < 36) video.currentTime = 36;
+            if (video.currentTime >= 36 && video.currentTime < 42) video.currentTime = 42;
         });
-
-        video.addEventListener('ended', function() {
-            video.currentTime = 3.1;
-            video.play();
-        });
+        video.addEventListener('ended', function() { video.currentTime = 3.1; video.play(); });
 
         function triggerLeadForm() {
             window.parent.postMessage('open-form-A8hu7li1gsIjw3yuNIHB', '*');
             setTimeout(() => {
                 const popup = document.querySelector('.hl_wrapper');
-                if (!popup) {
-                    window.open("https://api.leadconnectorhq.com/widget/form/A8hu7li1gsIjw3yuNIHB", "_blank");
-                }
+                if (!popup) window.open("https://api.leadconnectorhq.com/widget/form/A8hu7li1gsIjw3yuNIHB", "_blank");
             }, 1000);
         }
 
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainNav = document.getElementById('mainNav');
         mobileMenuBtn.addEventListener('click', () => mainNav.classList.toggle('active'));
-        
         document.querySelectorAll('#mainNav a').forEach(link => {
             link.addEventListener('click', () => mainNav.classList.remove('active'));
         });
         
         const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 50);
-        });
+        window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); });
         
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        // FIXED SMOOTH SCROLL SCRIPT
+        document.querySelectorAll('a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                if (this.getAttribute('href').startsWith('#')) {
+                const href = this.getAttribute('href');
+                // Only prevent default if the link is an internal section ID (starts with #)
+                if (href && href.startsWith('#') && href.length > 1) {
                     e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
+                    const target = document.querySelector(href);
                     if (target) window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
                 }
+                // If it's a file like Gallery.html, it will naturally follow the link.
             });
         });
     </script>
